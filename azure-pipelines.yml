@@ -14,3 +14,10 @@ steps:
 
 - script: docker push $(acrName).azurecr.io/$(imageName)
   displayName: 'docker push'
+- task: PublishBuildArtifacts@1
+  displayName: 'publish yaml folder as an artifact'
+  inputs:
+    artifactName: 'yaml'
+    pathToPublish: 'yaml'
+#- publish: './application'
+#  artifact: yaml-file
