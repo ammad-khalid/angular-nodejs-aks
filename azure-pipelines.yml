@@ -4,7 +4,6 @@ pool:
 variables:
   imageName: 'angularapp:$(Build.BuildId)'
   # define three more variables acrName, dockerId and dockerPassword in the build pipeline in UI
-
 steps:
 - script: docker build -f Dockerfile -t $(acrName).azurecr.io/$(imageName) .
   displayName: 'docker build'
