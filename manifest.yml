@@ -18,7 +18,7 @@ spec:
         app: angular-webapp
     spec:
       containers:
-      - image: angularnodejs.azurecr.io/aksdemo/angular-nodejs:v1
+      - image: angularnode.azurecr.io/angularapp:##BUILD_ID##
         name: webapp
         imagePullPolicy: Always
         resources: {}
