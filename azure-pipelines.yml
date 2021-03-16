@@ -2,11 +2,13 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'angularapp:$(Build.BuildId)'
-  group: acr
+  - group: acr
+  - name: imageName
+    value: 'angularapp:$(Build.BuildId)'
+  
   # define three more variables acrName, dockerId and dockerPassword in the build pipeline in UI
 steps:
-- script: docker build -f Dockerfile -t angularnode.azurecr.io/$(imageName) .
+- script: docker build -f Dockerfile -t $(acrName).azurecr.io/$(imageName) .
   displayName: 'docker build'
 
 - script: docker login -u $(dockerId) -p $(dockerPassword) $(acrName).azurecr.io
