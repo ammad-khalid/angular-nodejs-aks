@@ -20,7 +20,7 @@ steps:
   displayName: 'publish yaml folder as an artifact'
   inputs:
     artifactName: 'yaml'
-    pathToPublish: '/'
+    pathToPublish: 'manifest.yml'
     #'yaml'
 #- publish: './application'
 #  artifact: yaml-file
