@@ -2,7 +2,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'captureorder:$(Build.BuildId)'
+  imageName: 'angularapp:$(Build.BuildId)'
   # define three more variables acrName, dockerId and dockerPassword in the build pipeline in UI
 
 steps:
