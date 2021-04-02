@@ -4,7 +4,7 @@ pool:
 variables:
 # this group variable contains variables group that has acrName, acruser and password in it that we set in pipeline library.
 # define three more variables acrName, dockerId and dockerPassword in the build pipeline in UI
-  - group: acr
+  - group: acr01
 # imageName variable is just a stangalone variable that is being created and used in this file only.
   - name: imageName
     value: 'angularapp:$(Build.BuildId)'
