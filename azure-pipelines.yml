@@ -21,7 +21,7 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: '{aksclusterregistry01}'
+    containerRegistry: 'aksclusterregistry01'
     repository: 'aksreisgtry01/angularapp'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
