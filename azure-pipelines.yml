@@ -10,14 +10,23 @@ variables:
     value: 'angularapp:$(Build.BuildId)'
   
 steps:
-- script: docker build -f Dockerfile -t $(acrName).azurecr.io/$(imageName) .
-  displayName: 'docker build'
+#- script: docker build -f Dockerfile -t $(acrName).azurecr.io/$(imageName) .
+#  displayName: 'docker build'
 # acr docker ID and passwd is located in azure container registry "Access Keys Setting"
-- script: docker login -u $(dockerId) -p $(dockerPassword) $(acrName).azurecr.io
-  displayName: 'docker login'
+#- script: docker login -u $(dockerId) -p $(dockerPassword) $(acrName).azurecr.io
+#  displayName: 'docker login'
 
-- script: docker push $(acrName).azurecr.io/$(imageName)
-  displayName: 'docker push'
+#- script: docker push $(acrName).azurecr.io/$(imageName)
+#  displayName: 'docker push'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: '{aksclusterregistry01}'
+    repository: 'aksreisgtry01/angularapp'
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfile'
+    tags: '$(Build.BuildId)'
+
 - task: PublishBuildArtifacts@1
   displayName: 'publish yaml folder as an artifact'
   inputs:
