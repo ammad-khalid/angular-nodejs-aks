@@ -22,7 +22,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'aksclusterregistry01'
-    repository: 'aksreisgtry01/angularapp'
+    repository: 'aksreisgtry01.azurecr.io/angularapp'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
     tags: '$(Build.BuildId)'
