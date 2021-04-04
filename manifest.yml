@@ -4,9 +4,9 @@ metadata:
   creationTimestamp: null
   labels:
     app: angular-webapp
-    name: angular-webapp
+  name: angular-webapp
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: angular-webapp
