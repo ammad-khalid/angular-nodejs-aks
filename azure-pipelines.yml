@@ -27,11 +27,11 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'aksclusterregistry01'
-    repository: 'aksreisgtry01.azurecr.io/angularapp'
-    command: 'buildAndPush'
-    Dockerfile: 'Dockerfile'
-    tags: '$(Build.BuildId)'
+    containerRegistry: aksclusterregistry01
+    repository: aksreisgtry01.azurecr.io/angularapp
+    command: buildAndPush
+    Dockerfile: Dockerfile
+    tags: $(Build.BuildId)
 
 - task: PublishBuildArtifacts@1
   displayName: 'publish yaml folder as an artifact'
