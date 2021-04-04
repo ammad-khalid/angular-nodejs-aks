@@ -10,8 +10,8 @@ variables:
     value: 'angularapp:$(Build.BuildId)'
   
 steps:
-- script: docker build -f Dockerfile -t $(acrName).azurecr.io/$(imageName) .
-  displayName: 'docker build'
+#- script: docker build -f Dockerfile -t $(acrName).azurecr.io/$(imageName) .
+#  displayName: 'docker build'
 # acr docker ID and passwd is located in azure container registry "Access Keys Setting"
 - script: docker login -u $(dockerId) -p $(dockerPassword) $(acrName).azurecr.io
   displayName: 'docker login'
