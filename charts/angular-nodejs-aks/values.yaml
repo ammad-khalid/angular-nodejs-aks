@@ -1,1 +1,2 @@
-image.tag=$(Build.BuildNumber)”
+image:
+ tag:$(Build.BuildNumber)”
