@@ -1,1 +1,1 @@
-
+image.tag=$(Build.BuildNumber)”
