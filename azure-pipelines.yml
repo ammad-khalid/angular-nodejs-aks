@@ -43,7 +43,7 @@ steps:
   displayName: 'publish yaml folder as an artifact'
   inputs:
     artifactName: 'yaml' 
-    pathToPublish: 'angular-nodejs-aks' 
+    pathToPublish: 'Charts' 
  
 
 
