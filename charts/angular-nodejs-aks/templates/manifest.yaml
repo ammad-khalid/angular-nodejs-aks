@@ -18,7 +18,7 @@ spec:
         app: angular-webapp
     spec:
       containers:
-      - image: aksreisgtry01.azurecr.io/angularapp:{{.Values.image.tag}}
+      - image: aksreisgtry01.azurecr.io/angularapp:"{{.Values.image.tag}}"
       ##BUILD_ID##
         name: webapp
         imagePullPolicy: Always
