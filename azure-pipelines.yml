@@ -33,12 +33,21 @@ steps:
 #    Dockerfile: Dockerfile
 #    tags: $(Build.BuildId)
 
+#- task: PublishBuildArtifacts@1
+#  displayName: 'publish yaml folder as an artifact'
+#  inputs:
+#    artifactName: 'yaml' # this is the folder name where my artifact will store.
+#    pathToPublish: 'manifest.yml' #file or folder needs to be publish in "yaml" folder (above step).
+    #'yaml'
 - task: PublishBuildArtifacts@1
   displayName: 'publish yaml folder as an artifact'
   inputs:
-    artifactName: 'yaml' # this is the folder name where my artifact will store.
-    pathToPublish: 'manifest.yml' #file or folder needs to be publish in "yaml" folder (above step).
-    #'yaml'
+    artifactName: 'yaml' 
+    pathToPublish: 'angular-nodejs-aks' 
+ 
+
+
+
 #- publish: './application'
 #  artifact: yaml-file
 
