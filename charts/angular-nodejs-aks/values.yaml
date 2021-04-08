@@ -1,2 +1,2 @@
 image:
- tag:$(Build.BuildNumber)”
+ tag:$(Build.BuildId)
