@@ -23,12 +23,12 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-              - key: kubernetes.io/app
+              - key: app
                 operator: In
                 values:
                 - node
                 - node0
-              #topologyKey: kubernetes.io/hostname
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - image: aksreisgtry01.azurecr.io/angularapp:{{ .Values.image.tag}}
      # ##BUILD_ID##
