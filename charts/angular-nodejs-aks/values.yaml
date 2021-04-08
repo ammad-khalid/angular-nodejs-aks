@@ -1,5 +1,5 @@
 replicaCount: 3
 image:
-  tag: "$(Build.BuildId)"
+  tag: $(Build.BuildId)
 #strategy:
 updatetype: RollingUpdate
