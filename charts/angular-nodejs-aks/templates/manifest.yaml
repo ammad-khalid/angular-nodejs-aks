@@ -10,7 +10,8 @@ spec:
   selector:
     matchLabels:
       app: angular-webapp
-  strategy: {}
+  strategy: 
+   type: "{{ .Values.updatetype}}" 
   template:
     metadata:
       creationTimestamp: null
