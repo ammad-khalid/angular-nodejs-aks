@@ -19,16 +19,15 @@ spec:
         app: angular-webapp
     spec:
       affinity:
-        podAntiAffinity:
+        nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-           labelSelector:
-              matchExpressions:
-              - key: app
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/app
                 operator: In
                 values:
                 - node
                 - node0
-           topologyKey: "kubernetes.io/hostname"
       containers:
       - image: aksreisgtry01.azurecr.io/angularapp:{{ .Values.image.tag}}
      # ##BUILD_ID##
