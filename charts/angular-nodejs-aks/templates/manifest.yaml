@@ -23,7 +23,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: kubernetes.io/app
+              - key: beta.kubernetes.io/app
                 operator: In
                 values:
                 - node
