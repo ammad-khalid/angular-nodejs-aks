@@ -27,7 +27,7 @@ spec:
                 operator: In
                 values:
                 - node
-                - node0
+                
       containers:
       - image: aksreisgtry01.azurecr.io/angularapp:{{ .Values.image.tag}}
      # ##BUILD_ID##
