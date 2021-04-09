@@ -21,9 +21,9 @@ spec:
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            labelSelector:
+            nodeSelectorTerms:
             - matchExpressions:
-              - key: beta.kubernetes.io/app
+              - key: app
                 operator: In
                 values:
                 - node
