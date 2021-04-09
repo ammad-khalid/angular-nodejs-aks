@@ -1,0 +1,43 @@
+pipeline{
+    agent any
+    stages{
+       
+       stage("Build Docker File"){
+          steps{
+                 sh 'docker image build -t $(acrName).azurecr.io/$(imageName) .'
+                 #sh 'docker image tag $JOB_NAME:v1.$BUILD_ID haseebsultan/$JOB_NAME:v1.$BUILD_ID'
+                 #sh 'docker image tag $JOB_NAME:v1.$BUILD_ID haseebsultan/$JOB_NAME:latest'
+                 #sh 'sudo helm list'
+               }
+
+            }
+        stage("ACR Login"){
+           steps{
+                sh 'docker login -u $(dockerId) -p $(dockerPassword) $(acrName).azurecr.io'
+                }
+           }
+        stage("Push image to ACR"){
+          steps{
+                 withCredentials([string(credentialsId: 'dockerhubpassword', variable: 'dockerhubpassword')]) {
+               // some block
+                 sh 'docker login -u haseebsultan -p ${dockerhubpassword}'
+                 sh 'docker image push haseebsultan/$JOB_NAME:v1.$BUILD_ID'
+                 sh 'docker image push haseebsultan/$JOB_NAME:latest'
+                 sh 'docker image rmi $JOB_NAME:v1.$BUILD_ID haseebsultan/$JOB_NAME:v1.$BUILD_ID haseebsultan/$JOB_NAME:latest'
+         #        sh 'helm list'
+}
+               }
+
+            }
+
+#       stage("Deployment of Kubernetes"){
+#          steps{
+               
+#                 sh 'helm install angular ./helm'
+
+#               }
+#          }
+
+            
+}
+}
