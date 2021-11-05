@@ -1,0 +1,11 @@
+dist: trusty
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - echo "$DockerPass" | docker login -u "$DockerID" --password-stdin
+      - docker build -t travis-ci-build-stages-demo .
+      - docker images
+      - docker tag travis-ci-build-stages-demo $DockerID/travis-ci-build-stages-demo
+      - docker push $DockerID/travis-ci-build-stages-demo
